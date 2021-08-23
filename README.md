@@ -11,24 +11,22 @@ Create DSL for building json that meets the following requirements:
 2. DSL should support objects 
 3. DSL should support arrays 
 4. Json primitives should be used as is 
-5. Custom types must be converted to json as plain strings 
-* Add pretty printing for json 
+5. Custom types must be converted to json as plain strings
 
 Example: 
 
 ```
-val user = obj {
-    "firstName" by "John" 
-    "lastName" by "Smith" 
-    "age" by 20 
-    "email" by null 
-    "interests" by arr["kotlin", "programming", "computer science"] 
-    "metadata" by obj { 
-        "token" by UUID.randomUUID()// 075a68b5-05f0-4e90-84d9-e418ab68fe3a 
-        "expires" by LocalDateTime.now().plusDays(7)// 2021-02-21T19:28:50.307 
-        "role" by "admin" 
-    } 
-}
+val student = obj {
+        "name" relatedToValue "Alex"
+        "age" relatedToValue 19
+        "email" relatedToValue null
+        "skills" relatedToValue obj {
+            "hard" relatedToValue arr["Kotlin", "Android"]
+            "soft" relatedToValue arr[listOf("Customer communication", "Team player")]
+        }
+        "token" relatedToValue UUID.randomUUID()
+        "role" relatedToValue "user"
+    }
 ```
 
 ## Task: 
