@@ -33,6 +33,6 @@ val student = obj {
 
 Create a program that meets the requirements from the description. What do you need to do: 
 
-- Read java doc (you can find it inside of classes). Java doc includes some additional information. 
-- Check codebase and solve all compilation errors 
-- Instead “TODO()” fill functions body by your own Kotlin code that will complete the program and will pass unit tests 
+- Read java doc (you can find it inside classes). Java doc includes some additional information.
+- Check codebase and solve all compilation errors.
+- Change “TODO()” and fill the functions body with your own Kotlin code that will complete the program and will pass unit tests.
