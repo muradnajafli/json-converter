@@ -13,7 +13,7 @@ repositories {
 dependencies {
     testImplementation 'org.jetbrains.kotlin:kotlin-test-junit'
     testImplementation("com.google.code.gson:gson:2.8.6")
-    testImplementation "io.kotlintest:kotlintest-assertions-json:3.4.2"
+    testImplementation("io.kotlintest:kotlintest-assertions-json:3.4.2")
 }
 
 test {
