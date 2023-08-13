@@ -41,7 +41,11 @@ class JsonArray private constructor(
      * Also you should use here `ARRAY_PREFIX`, `ARRAY_POSTFIX` constants
      * Each value should be transformed to string using their own `toJsonString' method
      */
-    override fun toJsonString(): String = TODO("Return json string")
+    override fun toJsonString(): String {
+        val elements = values.joinToString(", ") { it.toJsonString() }
+        return "$ARRAY_PREFIX$elements$ARRAY_POSTFIX"
+
+    }
 
     companion object {
         private val EMPTY = JsonArray(emptyList())
@@ -61,7 +65,10 @@ class JsonObject private constructor(
      * Also you should use here `OBJECT_PREFIX`, `OBJECT_POSTFIX` constants
      * and `toJsonProperty` extension
      */
-    override fun toJsonString(): String = TODO("Return json string")
+    override fun toJsonString(): String  {
+        val jsonProperties = properties.entries.joinToString(", ") { it.toJsonProperty() }
+        return "$OBJECT_PREFIX$jsonProperties$OBJECT_POSTFIX"
+    }
 
     companion object {
         private val EMPTY_OBJECT = JsonObject(emptyMap())

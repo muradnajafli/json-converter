@@ -12,10 +12,10 @@ object arr {
      * - Else convert element using [Any]'s [toString] method
      * For these you should use [toJsonValue] extension of [Any]
      */
-    operator fun get(
-        vararg elements: Any?
-    ) = TODO("Return json array")
-
+    operator fun get(vararg elements: Any?): JsonArray {
+        val jsonValues = elements.map { it?.toJsonValue() ?: JsonNull }
+        return JsonArray.of(jsonValues)
+    }
     /**
      * Creates json array from given [elements]. Each element
      * in the resulting json array must be converted applying the following rules:
@@ -26,9 +26,10 @@ object arr {
      * - Else convert element using [Any]'s [toString] method
      * For these you should use [toJsonValue] extension of [Any]
      */
-    operator fun get(
-        elements: Iterable<Any?>
-    ) = TODO("Return json array")
+    operator fun get(elements: Iterable<Any?>): JsonArray {
+        val jsonValues = elements.map { it?.toJsonValue() ?: JsonNull }
+        return JsonArray.of(jsonValues)
+    }
 }
 
 /**
@@ -36,4 +37,8 @@ object arr {
  */
 fun obj(
     block: JsonObjectCreator.() -> Unit
-) = TODO("Return json object")
+): JsonObject{
+    val jsonObject = JsonObjectCreator()
+    jsonObject.block()
+    return jsonObject.toJsonTree()
+}
