@@ -35,9 +35,7 @@ object arr {
 /**
  * Creates json object using supplied configuration [block]
  */
-fun obj(
-    block: JsonObjectCreator.() -> Unit
-): JsonObject{
+fun obj(block: JsonObjectCreator.() -> Unit): JsonObject {
     val jsonObject = JsonObjectCreator()
     jsonObject.block()
     return jsonObject.toJsonTree()
